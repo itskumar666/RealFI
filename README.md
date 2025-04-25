@@ -1,84 +1,81 @@
-🏠 RealEstateFi – Tokenized Real Estate + DeFi Lending Protocol
-Build real-world wealth on the blockchain.
 
-RealEstateFi is a decentralized platform where verified land/property owners can tokenize their property, earn rewards based on property value, and access lending without intermediaries. It combines real estate, DeFi, and on-chain governance to create a secure, transparent, and trust-minimized protocol.
+# 🏠 RealEstateFi
 
-🚀 Features
-✅ Property NFT Verification – On-chain registry of land backed by KYC/KYB & off-chain document verification.
+**Tokenized Real Estate + DeFi Lending Protocol**
 
-📦 Fractional Ownership – ERC-20 tokens representing fractional shares of the property.
+RealEstateFi lets verified property owners tokenize their land and monetize it through yield generation and decentralized lending. It brings real-world assets (RWAs) onto the blockchain and enables users to earn, borrow, and govern—trustlessly.
 
-💰 Reward Token (YIELD) – Daily minting based on real estate appreciation using oracles.
+## ✨ Features
 
-🏦 Lending System – Use verified tokens as collateral to borrow stablecoins.
+- **Property Verification** via ERC-721 NFTs tied to off-chain legal proof  
+- **Fractional Ownership** with ERC-20 tokens per property  
+- **Yield Rewards** based on property value growth (via oracles)  
+- **Lending Protocol** where users borrow stablecoins using property tokens  
+- **Governance** powered by the reward token (`YIELD`)
 
-🗳 Governance – Reward token holders vote on listings, rules, and emissions.
+## 🛠 Tech Stack
 
-🛠 Tech Stack
+- **Solidity + Foundry** for smart contracts  
+- **ERC-721 / ERC-20** token standards  
+- **Chainlink (mock)** oracles for property prices  
+- **Optional:** React + Wagmi + IPFS for frontend & storage
 
-Layer	Tech
-Blockchain	Ethereum / L2 (zkSync, Optimism)
-Smart Contracts	Solidity + Foundry
-Token Standards	ERC-721, ERC-20
-Oracles	Chainlink (mock for now)
-Off-Chain Logic	KYC / Property Doc Verification
-Frontend (opt.)	React / Wagmi / Ethers.js
-Storage (opt.)	IPFS for docs/images
-📌 Project Structure
-bash
-Copy
-Edit
+## 🧱 Architecture
+
+```
 contracts/
-├── PropertyNFT.sol           # ERC721 representing unique real estate
-├── PropertyRegistry.sol      # Registry for verified properties
-├── FractionalTokenFactory.sol# Deploys ERC20 tokens per property
-├── YieldToken.sol            # Daily reward token
-├── LendingPool.sol           # Collateralized lending logic
-└── OracleMock.sol            # Simulated property pricing oracle
+│
+├── PropertyNFT.sol             → ERC721 token for verified property
+├── PropertyRegistry.sol        → Registry + verification tracking
+├── FractionalTokenFactory.sol  → ERC20 token deployment per property
+├── YieldToken.sol              → Daily minted reward token
+├── LendingPool.sol             → Lending logic (collateral + liquidation)
+└── OracleMock.sol              → Simulated property price oracle
 
 scripts/
-├── deploy.s.sol              # Deployment script using Foundry
+└── deploy.s.sol                → Foundry deploy script
 
 test/
-├── PropertyNFT.t.sol
-🧱 Modules
-🏠 Property Registry
-Mint NFT only after verification
+└── *.t.sol                     → Unit tests
+```
 
-Hash of location/doc ID to prevent duplication
+## 📅 Roadmap
 
-Maps NFT to owner and verification hash
+### Phase 1 – Property Setup  
+- Property NFT contract  
+- Registry with verification hash  
+- Manual property approval (off-chain doc simulation)
 
-🧩 Fractional Tokens
-Issued once per verified property
+### Phase 2 – Tokenization + Rewards  
+- Fractional token factory per verified property  
+- Reward token (`YIELD`)  
+- Oracle-mocked dynamic emission per property
 
-Represent ownership, access to revenue or staking rewards
+### Phase 3 – Lending System  
+- Accept fractional tokens as collateral  
+- Borrow stablecoins (USDC)  
+- Liquidation system
 
-📈 Oracle
-Provides property value on-chain
+### Phase 4 – Governance & Testnet  
+- Governance via `YIELD`  
+- Simple CLI / dApp UI  
+- Deploy to Sepolia or zkSync testnet
 
-Drives daily yield emission
+## 📦 Quick Start
 
-🪙 Reward Token (YIELD)
-Mints daily to property token holders
+```bash
+git clone https://github.com/your-username/realestatefi
+cd realestatefi
+forge install
+forge build
+forge test
+```
 
-Emission based on property appreciation
+## 🙌 Contributing
 
-Governance rights
+- Prioritize modular, gas-efficient, and secure code  
+- Suggest improvements to verification, emissions, or lending logic
 
-💸 Lending Pool
-Collateralized loan system
+## ⚠️ Disclaimer
 
-Accepts fractional tokens as collateral
-
-Liquidation on under-collateralization
-
-📢 Contributing
-PRs welcome. Focus on modularity, gas efficiency, and security.
-
-Suggest improvements in governance or off-chain verification methods.
-
-⚖️ Disclaimer
-This is a demo/prototype and not yet a legal or investment product. All properties and tokens in early versions are fictional or simulated.
-
-
+For demo and educational purposes only. Not financial advice.
